@@ -40,24 +40,24 @@
             <ul>
                 <li><strong>Employee Name:</strong> <?=$employee;?> </li>
                 <li><strong>Total Days Worked:</strong> <?=$days;?> </li>
-                <li><strong>Daily Rate:</strong> ₱<?=$rate;?> </li>
+                <li><strong>Daily Rate:</strong> ₱<?= number_format($rate, 2); ?> </li>
             </ul>
 
             <hr>
 
             <ul>
-                <li><strong>Gross Pay:</strong> ₱<?=$gross;?> </li>
-                <li><strong>Tax (2%):</strong> ₱<?=$tax; round($tax, 2)?> </li>
-                <li><strong>SSS (1.5%):</strong> ₱<?=$sss; round($sss, 2)?> </li>
-                <li><strong>Pag-ibig:</strong> ₱<?=$pagibig;?> </li>
-                <li><strong>Cash Advance:</strong> ₱<?=$advance;?> </li>
+                <li><strong>Gross Pay:</strong> ₱<?= number_format($gross, 2); ?> </li>
+                <li><strong>Tax (2%):</strong> ₱<?= number_format($tax, 2); ?> </li>
+                <li><strong>SSS (1.5%):</strong> ₱<?= number_format($sss, 2); ?> </li>
+                <li><strong>Pag-ibig:</strong> ₱<?= number_format($pagibig, 2); ?> </li>
+                <li><strong>Cash Advance:</strong> ₱<?= number_format($advance, 2); ?> </li>
             </ul>
 
             <hr>
 
             <ul>
-                <li><strong>Total Deductions:</strong> ₱<?= $deductions; round($deductions, 2);?></li>
-                <li class="net"><strong>Net Pay:</strong> ₱<?=$net; round($net, 2); ?></li>
+                <li><strong>Total Deductions:</strong> ₱<?= number_format($deductions, 2); ?></li>
+                <li class="net"><strong>Net Pay:</strong> ₱<?= number_format($net, 2); ?></li>
             </ul>
 
             <div class="mt-4">
