@@ -82,7 +82,7 @@
                     echo "<li class='discount'><strong>Grade Discount (20%):</strong> ₱".number_format($grade_disc, 2)."</li>";
                 }
 
-                if ($age_disc == 0 && $grade_disc == 0){
+                if ($total_discount == 0){
                     echo "<li class='nodisc'><strong>No discount added</strong></li>";
                     $final_tuition = $tuition;
                 } else {
