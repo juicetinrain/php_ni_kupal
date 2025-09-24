@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,15 +42,33 @@
 
             <button type="submit" name="submit" class="btn btn-primary w-100">Compute Total</button>
         </form>
-        
-                <div class="alert alert-success mt-4">
-        <h4>💡 Purchase Summary</h4>
-            <p><strong>Name:</strong> Juan </p>
-            <p><strong>Quantity:</strong> 10 </p>
-            <p><strong>Price per Item:</strong> ₱10.00 </p>
-            <p><strong>Subtotal:</strong> ₱100.00 </p>
-            <p><strong>Add-ons:</strong> ₱0.00</p>
-            <h5><strong>Final Total:</strong> ₱100.00</h5>        </div>
+        <?php
+        if (isset($_POST['submit'])) {
+            $name = $_POST['name'];
+            $quantity = $_POST ['quantity'];
+            $price = $_POST ['price'];
+            $subtotal = $price * $quantity;
+            $total=0;
+            $addons=0;
+            if (!empty($_POST['addons'])) {
+                foreach ($_POST['addons'] as $adds) {
+                    $addons += $adds;
+                }   
+            }
+            $total = $subtotal + $addons;
+        } else {
+            exit();
+        }
+        ?>
+        <div class="alert alert-success mt-4">
+            <h4>💡 Purchase Summary</h4>
+            <p><strong>Name:</strong> <?=$name;?> </p>
+            <p><strong>Quantity:</strong> <?=$quantity;?> </p>
+            <p><strong>Price per Item:</strong> ₱<?=number_format($price, 2);?> </p>
+            <p><strong>Subtotal:</strong> ₱<?=number_format($subtotal, 2);?> </p>
+            <p><strong>Add-ons:</strong> ₱<?=number_format($addons, 2);?></p>
+            <h5><strong>Final Total:</strong> ₱<?=number_format($total, 2);?></h5>
+        </div>
     </div>
 </div>
 </body>
